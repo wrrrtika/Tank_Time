@@ -22,6 +22,10 @@ class GameWindow < Gosu::Window
 	end
 
 	def needs_redraw?
+		@draws == 0 || @buttons_down > 0
+	end
+
+	def draw
 		@draws += 1
 		@message = Gosu::Image.from_text(
 			self, info, Gosu.default_font_name, 30)
